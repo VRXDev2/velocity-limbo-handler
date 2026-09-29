@@ -52,7 +52,7 @@ public class PlayerManager {
         if (VelocityLimboHandler.isQueueEnabled()) {
             reconnectQueueState.enqueue(player, registeredServer);
             String formattedMessage = MessageFormatter.formatMessage(queuePositionMsg, player);
-            player.sendMessage(miniMessage.deserialize(formattedMessage));
+            player.sendActionBar(miniMessage.deserialize(formattedMessage));
         }
     }
 

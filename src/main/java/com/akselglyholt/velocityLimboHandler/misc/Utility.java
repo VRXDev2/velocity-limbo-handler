@@ -1,7 +1,6 @@
 package com.akselglyholt.velocityLimboHandler.misc;
 
 import com.akselglyholt.velocityLimboHandler.VelocityLimboHandler;
-import com.akselglyholt.velocityLimboHandler.misc.MessageFormatter;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.server.RegisteredServer;
 import dev.dejvokep.boostedyaml.route.Route;
@@ -47,6 +46,7 @@ public class Utility {
                             "<gray>Try reconnecting or wait for a stable connection.</gray>");
             default -> miniMessage.deserialize(MessageFormatter.formatMessage(welcomeMsg, player));
         };
+        if (!message.hasStyling()) return;
 
         player.sendMessage(message);
     }
@@ -99,6 +99,7 @@ public class Utility {
         return null;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean hasMaintenance() {
         return VelocityLimboHandler.hasMaintenancePlugin();
     }
